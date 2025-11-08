@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WDD 131 - Dynamic Web Fundamentals - Product Review Confirmation - Sebastian Gorrin">
+  <meta name="author" content="Sebastian Gorrin">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="styles/index/larger.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/course.js" defer></script>
 </head>
 <body>
-    
+  <header>
+    <img src="images/home.svg" alt="Home Logo" width="512" height="512">
+    <span>My Academic Profile</span>
+    <button id="ham-btn" class="hamburger">
+        <span class="icon-open">☰</span>
+        <span class="icon-close">X</span>
+    </button>
+  </header>
+  <nav id="nav">
+    <ul>
+        <li class="current"><a href="index.html">Home</a></li>
+        <li><a href="about.html">Chamber Project</a></li>
+        <li><a href="projects.html">Final Project</a></li>
+    </ul>
+  </nav>
+  <main>
+   <h1>Home</h1>
+    <div class="first">
+
+        <section class="abt-me">
+           <h2>About Me</h2>
+           <p>Hi to everyone, my name is sebastian Gorrin, im a software development and medicne student from Venezuela, im 20 years old and one of my biggest ambitions is to move to the US and become part of the USMC Infantry reconnaissance 0321 and specialize in neurosurgery once i finish medical school</p>
+        </section>
+   
+        <section class="std-photo">
+          <h2>Student Photo</h2>
+          <img src="images/IMG_6518.jpg" alt="Picture of Sebastian Gorrin" width="300" height="400">
+        </section>
+
+    </div>
+
+
+    <div class="second">
+
+        <section>
+            <h2>Web Certificate Courses</h2>
+        </section>
+
+        <!-- Cards will be dynamically inserted here -->
+
+    </div>
+
+     <p>The total credits for courses listed above is 6</p>
+
+  </main>
+
+  <footer>
+
+    <div class= "footer-svgs">
+      <a href="https://github.com/sgorrinmedina" target="_blank"><img src="images/github.svg" alt="My Github Account" width="16px" height="16px"></a>
+      <a href="https://www.instagram.com/sebastiangrnm?igsh=dDBveWVxN2MyaTBr&utm_source=qr" target="_blank"><img src="images/instagram.svg" alt="My Instagram"  width="16px" height="16px"></a>
+      <a href="https://www.threads.com/@sebastiangrnm" target="_blank"><img src="images/threads-fill.svg" alt="My Threads"  width="16px" height="16px"></a>
+      <a href="" target="_blank"><img src="images/linkedin.svg" alt="My LinkedIn"  width="16px" height="16px"></a>
+    </div>
+
+    <p>&copy; <span id="currentyear"></span> Sebastian Gorrin 🌺 Venezuela</p>
+    <p id="lastModified"></p>
+  </footer>
 </body>
 </html>

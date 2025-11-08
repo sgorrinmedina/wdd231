@@ -1,0 +1,16 @@
+.hamburger {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+    /* Mostrar el ícono 'X' cuando el menú está abierto */
+    .hamburger.open .icon-open {
+        display: none;
+    }
+
+    .hamburger.open .icon-close {
+        display: block;
+    }

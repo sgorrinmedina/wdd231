@@ -1,0 +1,447 @@
+@media only screen and (min-width: 38rem) {
+
+  /* styles/index/larger.css */
+
+/* --- General Styles for Larger View --- */
+:root {
+    --primary-color: #000;
+    --secondary-color: #333;
+    --tertiary-color: #eee;
+    --text-color: #000;
+    --light-gray: #ccc;
+    --medium-gray: #666;
+}
+
+body {
+    max-width: 1200px; /* Constrain the overall width */
+    margin: 0 auto; /* Center the page */
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
+/* --- Header and Navigation --- */
+/* --- Header and Navigation --- */
+header {
+    display: grid;
+    grid-template-columns: 27px auto;
+    align-items: center;
+    padding: 10px 0 10px 10px;
+    column-gap: 13px;
+    background-color: var(--tertiary-color);
+    color: rgb(24, 22, 22);
+}
+
+header img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-bottom: 2.5px;
+}
+
+header span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(17, 15, 15);
+    padding-top: 1.5px;
+}
+
+#ham-btn {
+    display: none; /* Hide hamburger button in larger view */
+}
+
+nav {
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
+nav ul li.current a {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* --- Main Content Layout --- */
+main {
+    padding: 1rem;
+}
+
+main > h1 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section 1: About Me and Student Photo (Side-by-Side) */
+.first {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* About Me takes 2/3, Photo takes 1/3 */
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.abt-me, .std-photo {
+    border: 1px solid var(--medium-gray);
+    padding: 0; /* Remove padding from the section itself */
+    background-color: var(--tertiary-color);
+}
+
+.abt-me h2, .std-photo h2 {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.abt-me p {
+    padding: 1rem;
+    margin: 0;
+    background-color: var(--tertiary-color); /* Light gray background for content area */
+    min-height: 200px; /* Ensure a minimum height for the content box */
+}
+
+.std-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    background-color: var(--tertiary-color); /* Light gray background for image area */
+    min-height: 200px;
+}
+
+/* Section 2: Web Certificate Courses */
+.second {
+    margin-bottom: 1rem;
+}
+
+.second section h2 {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* The wireframe shows a grid of buttons/cards below the "Web Certificate Courses" title.
+   Since the cards are dynamically inserted, I will style the container and placeholder. */
+        #second {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Base Course Card Styling */
+        .course-card {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* STYLING FOR COMPLETED COURSES (Using a 'Success' Color) */
+        .course-completed {
+            background-color: #e6ffe6; /* Very light green */
+            border-left: 5px solid #28a745; /* Green border */
+        }
+
+        .status-completed-text {
+            color: #28a745; /* Darker green text */
+            font-weight: bold;
+        }
+
+        /* STYLING FOR INCOMPLETE COURSES (Using a 'Neutral/Warning' Color) */
+        .course-incomplete {
+            background-color: #fff0e6; /* Very light orange/peach */
+            border-left: 5px solid #ffc107; /* Orange/Yellow border */
+        }
+
+        .status-incomplete-text {
+            color: #dc3545; /* Red text for emphasis on 'Not Completed' */
+            font-weight: bold;
+        }
+
+        /* Other card elements */
+        .course-card h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .course-credits {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        .course-description {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+/* --- Footer --- */
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.footer-svgs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-svgs img {
+    filter: invert(100%); /* Make the social icons white */
+    width: 24px;
+    height: 24px;
+}
+
+footer p {
+    margin: 0.2rem 0;
+}
+
+/* Adjusting the HTML to better match the wireframe structure for the "Web Certificate Courses" section.
+   The HTML provided is:
+   <div class="second">
+        <section>
+            <h2>Web Certificate Courses</h2>
+        </section>
+        <!-- Cards will be dynamically inserted here -->
+    </div>
+
+   To make the layout work, I will assume the dynamic cards will be inserted *after* the section, or I will style the section to contain the title and the card area.
+   Since the title is separate from the card area in the wireframe, I will assume the dynamic content will be inserted into a new container.
+   For now, I will add a placeholder class to the HTML structure in my mind and style it.
+   
+   I will assume the final HTML structure for the second section will look like this after the dynamic content is inserted:
+   <div class="second">
+        <section class="course-header">
+            <h2>Web Certificate Courses</h2>
+        </section>
+        <div class="course-cards-container">
+            <!-- Dynamic content (filters and cards) will go here -->
+        </div>
+    </div>
+
+   Since I cannot modify the HTML yet, I will add a placeholder style for the dynamic content area.
+*/
+
+/* Placeholder for the dynamic content area to simulate the wireframe's course layout */
+.second {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border: 1px solid var(--medium-gray); /* Border around the whole second section */
+}
+
+.second section {
+    border: none; /* Remove inner border */
+}
+
+.second section h2 {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* This is the area where the dynamic content will be. I will use a placeholder div for styling. */
+.second-content-placeholder {
+    padding: 1rem;
+    background-color: var(--tertiary-color);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* Simulating the filter buttons and course cards from the wireframe */
+.filter-row {
+    grid-column: 1 / -1; /* Span all columns */
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-button {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--medium-gray);
+    background-color: var(--light-gray);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.course-card-row {
+    grid-column: 1 / -1; /* Span all columns */
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 1rem;
+}
+
+.course-card-item {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--medium-gray);
+    background-color: var(--light-gray);
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Since I cannot modify the HTML, I will add a temporary div inside the .second div to apply these styles,
+   and then remove it when the user adds the JavaScript.
+   For now, I will just provide the CSS based on the *intended* structure.
+   I will add a comment in the CSS to guide the user on the expected HTML structure for the second section.
+*/
+
+/* --- CSS for the expected dynamic content structure in .second --- */
+/* The wireframe suggests a structure like this inside <div class="second">:
+   <section><h2>Web Certificate Courses</h2></section>
+   <div class="course-content-area">
+       <div class="filter-row">
+           <button class="filter-button">All</button>
+           <button class="filter-button">CSE</button>
+           <button class="filter-button">WDD</button>
+       </div>
+       <div class="course-card-row">
+           <div class="course-card-item">WDD 130</div>
+           <div class="course-card-item">WDD 131</div>
+           <div class="course-card-item">WDD 231</div>
+       </div>
+   </div>
+*/
+
+.second {
+    border: 1px solid var(--medium-gray);
+    margin-bottom: 2rem;
+}
+
+.second section {
+    border: none;
+}
+
+.second section h2 {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.course-content-area {
+    padding: 1rem;
+    background-color: var(--tertiary-color);
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-button {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--medium-gray);
+    background-color: var(--light-gray);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.course-card-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.course-card-item {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--medium-gray);
+    background-color: var(--light-gray);
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* The HTML provided has the dynamic content outside the section, so I will add a temporary div in the HTML to test the layout.
+   Since I cannot modify the HTML, I will just provide the CSS and assume the user will adjust the HTML or the JS will create the necessary structure.
+   I will add a note to the user about the expected HTML structure for the second section.
+*/
+
+/* Final check on the HTML structure and how the CSS applies:
+   <div class="second">
+        <section>
+            <h2>Web Certificate Courses</h2>
+        </section>
+        <!-- Cards will be dynamically inserted here -->
+    </div>
+
+   The CSS above assumes a container for the cards. Since the cards are dynamically inserted, the JS will likely create them.
+   I will assume the JS will insert a container for the cards, or I will style the .second div to be a grid and the dynamically inserted content will be the second grid item.
+   
+   Let's adjust the CSS for the provided HTML structure:
+*/
+
+.second {
+    border: 1px solid var(--medium-gray);
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-rows: auto 1fr; /* Title row and content row */
+}
+
+.second section {
+    border: none;
+}
+
+.second section h2 {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* The area where the dynamic content will be inserted. I will call this container '.course-content-area' and assume the JS will create it.
+   Since I cannot modify the HTML, I will provide the CSS for the expected structure and let the user know.
+*/
+
+/* The CSS provided above is good, but I need to make sure the user knows what HTML structure is expected for the dynamic content.
+   I will add a comment in the CSS and in the final message.
+*/
+
+
+}
