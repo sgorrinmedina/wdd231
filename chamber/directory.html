@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Business directory for the local Chamber of Commerce - connecting businesses and fostering economic growth in our community">
+    <meta name="author" content="Your Name">
+    
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Chamber of Commerce Business Directory">
+    <meta property="og:description" content="Explore local businesses and connect with our chamber members">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/2c5f7c/ffffff?text=Chamber+Directory">
+    <meta property="og:url" content="https://yourdomain.com/chamber/directory.html">
+    <meta property="og:type" content="website">
+    
+    <title>Business Directory | Chamber of Commerce</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏛️</text></svg>">
+    
+    <!-- CSS Reset/Normalize -->
+    <style>
+        /* CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        button {
+            font: inherit;
+        }
+    </style>
+    
+    <style>
+        /* Main Styles */
+        :root {
+            --primary-color: #2c5f7c;
+            --secondary-color: #e89b3c;
+            --background-color: #f5f5f5;
+            --text-color: #333333;
+            --card-background: #ffffff;
+            --header-bg: #1a3a4a;
+            --footer-bg: #2c5f7c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+        
+        .nav-menu li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            background-color: var(--secondary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* View Toggle */
+        .view-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .view-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .view-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .view-btn.active {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Directory Container */
+        #directory {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        #directory.list-view {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Member Cards */
+        .member-card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        #directory.list-view .member-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .member-image {
+            width: 100%;
+            height: 150px;
+            background-color: var(--background-color);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        #directory.list-view .member-image {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+        
+        .member-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .member-info p {
+            margin: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .member-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .member-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .membership-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .membership-badge.gold {
+            background-color: #ffd700;
+            color: #333;
+        }
+        
+        .membership-badge.silver {
+            background-color: #c0c0c0;
+            color: #333;
+        }
+        
+        .membership-badge.member {
+            background-color: #87ceeb;
+            color: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin: 0.5rem 0;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li a {
+                padding: 0.75rem 0;
+            }
+            
+            #directory {
+                grid-template-columns: 1fr;
+            }
+            
+            #directory.list-view .member-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            #directory.list-view .member-image {
+                width: 100%;
+                height: 150px;
+                margin-bottom: 1rem;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            .view-controls {
+                flex-direction: column;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            #directory {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">🏛️</div>
+                <h1>Your City Chamber of Commerce</h1>
+            </div>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="page-header">
+            <h2>Business Directory</h2>
+            <p>Connect with our local business community</p>
+        </div>
+        
+        <div class="view-controls">
+            <button class="view-btn active" id="gridBtn">📊 Grid View</button>
+            <button class="view-btn" id="listBtn">📋 List View</button>
+        </div>
+        
+        <div id="directory"></div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Your City Chamber of Commerce</p>
+                <p>123 Main Street</p>
+                <p>Your City, State 12345</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: <a href="mailto:info@chamber.com">info@chamber.com</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="directory.html">Directory</a></p>
+                <p><a href="join.html">Join Us</a></p>
+                <p><a href="discover.html">Discover</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="YouTube">▶️</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Your City Chamber of Commerce</p>
+            <p>Your Full Name | WDD 231</p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Members data (this would normally be in members.json)
+        const membersData = [
+            {
+                name: "Tech Solutions Inc",
+                address: "456 Innovation Drive, Your City",
+                phone: "(555) 234-5678",
+                website: "https://techsolutions.example.com",
+                image: "💻",
+                membershipLevel: 3,
+                description: "Leading technology solutions provider"
+            },
+            {
+                name: "Green Valley Restaurant",
+                address: "789 Main Street, Your City",
+                phone: "(555) 345-6789",
+                website: "https://greenvalley.example.com",
+                image: "🍽️",
+                membershipLevel: 2,
+                description: "Farm-to-table dining experience"
+            },
+            {
+                name: "City Fitness Center",
+                address: "321 Health Avenue, Your City",
+                phone: "(555) 456-7890",
+                website: "https://cityfitness.example.com",
+                image: "💪",
+                membershipLevel: 2,
+                description: "Complete fitness and wellness facility"
+            },
+            {
+                name: "Artisan Coffee House",
+                address: "654 Brew Street, Your City",
+                phone: "(555) 567-8901",
+                website: "https://artisancoffee.example.com",
+                image: "☕",
+                membershipLevel: 1,
+                description: "Locally roasted specialty coffee"
+            },
+            {
+                name: "Premier Auto Group",
+                address: "987 Car Plaza, Your City",
+                phone: "(555) 678-9012",
+                website: "https://premierauto.example.com",
+                image: "🚗",
+                membershipLevel: 3,
+                description: "New and certified pre-owned vehicles"
+            },
+            {
+                name: "Sunshine Dental Care",
+                address: "147 Smile Boulevard, Your City",
+                phone: "(555) 789-0123",
+                website: "https://sunshinedental.example.com",
+                image: "🦷",
+                membershipLevel: 2,
+                description: "Comprehensive dental services"
+            },
+            {
+                name: "Main Street Boutique",
+                address: "258 Fashion Lane, Your City",
+                phone: "(555) 890-1234",
+                website: "https://mainstreetboutique.example.com",
+                image: "👗",
+                membershipLevel: 1,
+                description: "Trendy fashion and accessories"
+            },
+            {
+                name: "Community Bank & Trust",
+                address: "369 Finance Street, Your City",
+                phone: "(555) 901-2345",
+                website: "https://communitybank.example.com",
+                image: "🏦",
+                membershipLevel: 3,
+                description: "Personal and business banking"
+            }
+        ];
+        
+        // Function to get membership level name
+        function getMembershipLevel(level) {
+            switch(level) {
+                case 3: return 'gold';
+                case 2: return 'silver';
+                case 1: return 'member';
+                default: return 'member';
+            }
+        }
+        
+        function getMembershipName(level) {
+            switch(level) {
+                case 3: return 'Gold Member';
+                case 2: return 'Silver Member';
+                case 1: return 'Member';
+                default: return 'Member';
+            }
+        }
+        
+        // Display members
+        function displayMembers(members) {
+            const directory = document.getElementById('directory');
+            directory.innerHTML = '';
+            
+            members.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                
+                const levelClass = getMembershipLevel(member.membershipLevel);
+                const levelName = getMembershipName(member.membershipLevel);
+                
+                card.innerHTML = `
+                    <div class="member-image">${member.image}</div>
+                    <div class="member-info">
+                        <h3>${member.name}</h3>
+                        <p>${member.description}</p>
+                        <p><strong>Address:</strong> ${member.address}</p>
+                        <p><strong>Phone:</strong> ${member.phone}</p>
+                        <p><strong>Website:</strong> <a href="${member.website}" target="_blank">Visit Site</a></p>
+                        <span class="membership-badge ${levelClass}">${levelName}</span>
+                    </div>
+                `;
+                
+                directory.appendChild(card);
+            });
+        }
+        
+        // Simulate fetch with async/await
+        async function loadMembers() {
+            // Simulating API call
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(membersData);
+                }, 100);
+            });
+        }
+        
+        // Initialize directory
+        async function initDirectory() {
+            const members = await loadMembers();
+            displayMembers(members);
+        }
+        
+        // View toggle functionality
+        const gridBtn = document.getElementById('gridBtn');
+        const listBtn = document.getElementById('listBtn');
+        const directory = document.getElementById('directory');
+        
+        gridBtn.addEventListener('click', () => {
+            directory.classList.remove('list-view');
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+        });
+        
+        listBtn.addEventListener('click', () => {
+            directory.classList.add('list-view');
+            listBtn.classList.add('active');
+            gridBtn.classList.remove('active');
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Footer dynamic content
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = document.lastModified;
+        
+        // Load members on page load
+        initDirectory();
+    </script>
+</body>
+</html>

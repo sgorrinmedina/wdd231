@@ -1,0 +1,32 @@
+{
+  "famname": "Cycle World",
+
+  "date": "2024-06-15",
+
+  "people_in_family": 4,
+
+  "visited": true,
+
+  "individual_info": [
+    {
+      "name": "Alice",
+      "age": 34,
+      "relation": "Mother"
+    },
+    {
+      "name": "Bob",
+      "age": 36,
+      "relation": "Father"
+    },
+    {
+      "name": "Charlie",
+      "age": 10,
+      "relation": "Son"
+    },
+    {
+      "name": "Daisy",
+      "gender": "female",
+      "birthdate": "1999-08-25",
+    }
+  ]
+}

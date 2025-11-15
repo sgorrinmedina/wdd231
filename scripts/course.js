@@ -85,10 +85,18 @@ function clearCourseCards() {
     }
 }
 
+const allCourses = document.querySelector("#all")
+const wddCourses = document.querySelector("#wdd")
+const cseCourses = document.querySelector("#cse")
+
+
+
 /**
  * Dynamically displays course cards in the container.
  * @param {Array<Object>} courseArray - The array of course objects to display.
  */
+
+
 function displayCourses(courseArray) {
     clearCourseCards();
 
@@ -98,48 +106,16 @@ function displayCourses(courseArray) {
     }
 
     courseArray.forEach(course => {
-        const card = document.createElement('div');
+        let card = document.createElement('section');
         card.className = 'course-card';
 
-        // Apply a class based on completion status for styling
-        if (course.completed) {
-            // Use a class for completed courses (e.g., a green border or background)
-            card.classList.add('course-completed');
-        } else {
-            // Use a class for incomplete courses (e.g., a gray border or different background)
-            card.classList.add('course-incomplete');
-        }
+        let titles = document.createElement("h2")
+        titles.textContent = `${course.subject} ${prophet.number}`;
 
-        // 1. Title (e.g., WDD 131: Dynamic Web Fundamentals)
-        const title = document.createElement('h3');
-        title.textContent = `${course.subject} ${course.number}: ${course.title}`;
-        card.appendChild(title);
-
-        // 2. Credits
-        const credits = document.createElement('p');
-        credits.className = 'course-credits';
-        credits.textContent = `Credits: ${course.credits}`;
-        card.appendChild(credits);
-
-        // 3. Description
-        const description = document.createElement('p');
-        description.className = 'course-description';
-        description.textContent = course.description;
-        card.appendChild(description);
-
-        // 4. Completion Status Indicator
-        const status = document.createElement('p');
-        status.className = 'course-status';
-        status.textContent = course.completed ? 'Status: Completed' : 'Status: Not Completed';
-        
-        // Add a class to the status text itself for fine-grained styling
-        status.classList.add(course.completed ? 'status-completed-text' : 'status-incomplete-text');
-        card.appendChild(status);
-
-        // Append the card to the container
-        coursesContainer.appendChild(card);
-    });
+        card.appendChild(titles)
+    )}
 }
+
 
 // Call the function to display the courses when the script runs
 // This ensures the display is dynamic and adjusts automatically to the data source.
