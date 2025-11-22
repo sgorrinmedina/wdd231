@@ -79,44 +79,72 @@ const courses = [
 
 ];
 
+const coursesContainer = document.querySelector(".second");
+const allCourses = document.querySelector("#all");
+const wddCourses = document.querySelector("#wdd");
+const cseCourses = document.querySelector("#cse");
+
 function clearCourseCards() {
     if (coursesContainer) {
-        coursesContainer.innerHTML = '';
+        const cards = coursesContainer.querySelectorAll('.course-card');
+        cards.forEach(card => card.remove());
     }
 }
 
-const allCourses = document.querySelector("#all")
-const wddCourses = document.querySelector("#wdd")
-const cseCourses = document.querySelector("#cse")
-
-
-
-/**
- * Dynamically displays course cards in the container.
- * @param {Array<Object>} courseArray - The array of course objects to display.
- */
-
+function calculateTotalCredits(courseArray) {
+    return courseArray.reduce((total, course) => total + course.credits, 0);
+}
 
 function displayCourses(courseArray) {
     clearCourseCards();
 
     if (!coursesContainer) {
-        console.error("Course container element with ID 'second' not found.");
+        console.error("Course container element not found.");
         return;
     }
 
     courseArray.forEach(course => {
         let card = document.createElement('section');
         card.className = 'course-card';
+        
+        if (course.completed) {
+            card.classList.add('completed');
+        }
 
-        let titles = document.createElement("h2")
-        titles.textContent = `${course.subject} ${prophet.number}`;
+        let titles = document.createElement("h3");
+        titles.textContent = `${course.subject} ${course.number}`;
 
-        card.appendChild(titles)
-    )}
+        card.appendChild(titles);
+        coursesContainer.appendChild(card);
+    });
+
+    const totalCredits = calculateTotalCredits(courseArray);
+    const creditsElement = document.getElementById('totalCredits');
+    if (creditsElement) {
+        creditsElement.textContent = totalCredits;
+    }
 }
 
+// Add null checks for event listeners
+if (allCourses) {
+    allCourses.addEventListener('click', () => {
+        displayCourses(courses);
+    });
+}
 
-// Call the function to display the courses when the script runs
-// This ensures the display is dynamic and adjusts automatically to the data source.
+if (wddCourses) {
+    wddCourses.addEventListener('click', () => {
+        const filtered = courses.filter(course => course.subject === 'WDD');
+        displayCourses(filtered);
+    });
+}
+
+if (cseCourses) {
+    cseCourses.addEventListener('click', () => {
+        const filtered = courses.filter(course => course.subject === 'CSE');
+        displayCourses(filtered);
+    });
+}
+
+// Initial display
 displayCourses(courses);
