@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Your City Chamber of Commerce - connecting businesses and fostering economic growth in our community">
+    <meta name="author" content="Your Name">
+    
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Your City Chamber of Commerce">
+    <meta property="og:description" content="Join our thriving business community and grow your business">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/2c5f7c/ffffff?text=Chamber+Home">
+    <meta property="og:url" content="https://yourdomain.com/chamber/index.html">
+    <meta property="og:type" content="website">
+    
+    <title>Home | Chamber of Commerce</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏛️</text></svg>">
+    
+    <style>
+        /* CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        button {
+            font: inherit;
+        }
+        
+        /* Main Styles */
+        :root {
+            --primary-color: #2c5f7c;
+            --secondary-color: #e89b3c;
+            --background-color: #f5f5f5;
+            --text-color: #333333;
+            --card-background: #ffffff;
+            --header-bg: #1a3a4a;
+            --footer-bg: #2c5f7c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 0;
+        }
+        
+        .nav-menu li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            background-color: var(--secondary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--header-bg) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%231a3a4a" width="1200" height="400"/><circle fill="%232c5f7c" cx="100" cy="100" r="80" opacity="0.3"/><circle fill="%232c5f7c" cx="900" cy="300" r="100" opacity="0.3"/><circle fill="%23e89b3c" cx="1100" cy="150" r="60" opacity="0.2"/></svg>') center/cover;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Section Cards */
+        .section-card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .section-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Events Section */
+        .event-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        .event-date {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-item h4 {
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+        
+        /* Weather Section */
+        .weather-info {
+            text-align: center;
+        }
+        
+        .current-weather {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+        }
+        
+        .weather-icon {
+            font-size: 4rem;
+        }
+        
+        .weather-temp {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .weather-desc {
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            color: var(--text-color);
+        }
+        
+        .forecast {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .forecast-day {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .forecast-day-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .forecast-temp {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        /* Spotlights Section */
+        .spotlights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .spotlight-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .spotlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .spotlight-logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .spotlight-card h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spotlight-card p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .spotlight-card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .spotlight-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .membership-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .membership-badge.gold {
+            background-color: #ffd700;
+            color: #333;
+        }
+        
+        .membership-badge.silver {
+            background-color: #c0c0c0;
+            color: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin: 0.5rem 0;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+        }
+        
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-color);
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 3rem;
+            }
+            
+            .spotlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .spotlights-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li a {
+                padding: 0.75rem 0;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .current-weather {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .forecast {
+                flex-direction: column;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">🏛️</div>
+                <h1>Your City Chamber of Commerce</h1>
+            </div>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-content">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Your City's Business Community</h2>
+            <p>Connect, grow, and thrive with local entrepreneurs and business leaders</p>
+            <a href="join.html" class="cta-button">Join Our Chamber Today</a>
+        </div>
+    </section>
+    
+    <main>
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Current Events Section -->
+                <section class="section-card">
+                    <h3>📅 Upcoming Events</h3>
+                    <div class="event-item">
+                        <span class="event-date">Dec 5, 2024</span>
+                        <h4>Business Networking Breakfast</h4>
+                        <p>Join us for our monthly networking event. Connect with fellow business owners over breakfast and discussion.</p>
+                        <p><strong>Location:</strong> Chamber Conference Room | <strong>Time:</strong> 8:00 AM - 10:00 AM</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-date">Dec 12, 2024</span>
+                        <h4>Small Business Workshop: Digital Marketing</h4>
+                        <p>Learn the latest digital marketing strategies to grow your business online.</p>
+                        <p><strong>Location:</strong> Community Center | <strong>Time:</strong> 6:00 PM - 8:00 PM</p>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-date">Dec 19, 2024</span>
+                        <h4>Annual Holiday Mixer</h4>
+                        <p>Celebrate the season with the business community at our annual holiday gathering.</p>
+                        <p><strong>Location:</strong> Green Valley Restaurant | <strong>Time:</strong> 5:30 PM - 8:00 PM</p>
+                    </div>
+                </section>
+                
+                <!-- Member Spotlights Section -->
+                <section class="section-card">
+                    <h3>⭐ Member Spotlights</h3>
+                    <div class="spotlights-grid" id="spotlights">
+                        <div class="loading">Loading member spotlights...</div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Right Column -->
+            <div>
+                <!-- Weather Section -->
+                <section class="section-card">
+                    <h3>🌤️ Local Weather</h3>
+                    <div class="weather-info" id="weather">
+                        <div class="loading">Loading weather data...</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Your City Chamber of Commerce</p>
+                <p>123 Main Street</p>
+                <p>Your City, State 12345</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: <a href="mailto:info@chamber.com">info@chamber.com</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="directory.html">Directory</a></p>
+                <p><a href="join.html">Join Us</a></p>
+                <p><a href="discover.html">Discover</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="YouTube">▶️</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Your City Chamber of Commerce</p>
+            <p>Your Full Name | WDD 231</p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Members data (simulating JSON fetch)
+        const membersData = [
+            {
+                name: "Tech Solutions Inc",
+                address: "456 Innovation Drive, Your City",
+                phone: "(555) 234-5678",
+                website: "https://techsolutions.example.com",
+                image: "💻",
+                membershipLevel: 3,
+                description: "Leading technology solutions provider"
+            },
+            {
+                name: "Green Valley Restaurant",
+                address: "789 Main Street, Your City",
+                phone: "(555) 345-6789",
+                website: "https://greenvalley.example.com",
+                image: "🍽️",
+                membershipLevel: 2,
+                description: "Farm-to-table dining experience"
+            },
+            {
+                name: "City Fitness Center",
+                address: "321 Health Avenue, Your City",
+                phone: "(555) 456-7890",
+                website: "https://cityfitness.example.com",
+                image: "💪",
+                membershipLevel: 2,
+                description: "Complete fitness and wellness facility"
+            },
+            {
+                name: "Premier Auto Group",
+                address: "987 Car Plaza, Your City",
+                phone: "(555) 678-9012",
+                website: "https://premierauto.example.com",
+                image: "🚗",
+                membershipLevel: 3,
+                description: "New and certified pre-owned vehicles"
+            },
+            {
+                name: "Sunshine Dental Care",
+                address: "147 Smile Boulevard, Your City",
+                phone: "(555) 789-0123",
+                website: "https://sunshinedental.example.com",
+                image: "🦷",
+                membershipLevel: 2,
+                description: "Comprehensive dental services"
+            },
+            {
+                name: "Community Bank & Trust",
+                address: "369 Finance Street, Your City",
+                phone: "(555) 901-2345",
+                website: "https://communitybank.example.com",
+                image: "🏦",
+                membershipLevel: 3,
+                description: "Personal and business banking"
+            }
+        ];
+        
+        // Fetch members (simulated with async/await)
+        async function fetchMembers() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(membersData);
+                }, 300);
+            });
+        }
+        
+        // Display random gold/silver member spotlights
+        async function displaySpotlights() {
+            try {
+                const members = await fetchMembers();
+                
+                // Filter only gold (3) and silver (2) members
+                const qualifiedMembers = members.filter(m => m.membershipLevel >= 2);
+                
+                // Randomly select 2-3 members
+                const numSpotlights = Math.random() > 0.5 ? 3 : 2;
+                const shuffled = qualifiedMembers.sort(() => 0.5 - Math.random());
+                const selectedMembers = shuffled.slice(0, Math.min(numSpotlights, qualifiedMembers.length));
+                
+                const spotlightsContainer = document.getElementById('spotlights');
+                spotlightsContainer.innerHTML = '';
+                
+                selectedMembers.forEach(member => {
+                    const levelClass = member.membershipLevel === 3 ? 'gold' : 'silver';
+                    const levelName = member.membershipLevel === 3 ? 'Gold Member' : 'Silver Member';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'spotlight-card';
+                    card.innerHTML = `
+                        <div class="spotlight-logo">${member.image}</div>
+                        <h4>${member.name}</h4>
+                        <p>${member.description}</p>
+                        <p><strong>📍</strong> ${member.address}</p>
+                        <p><strong>📞</strong> ${member.phone}</p>
+                        <p><strong>🌐</strong> <a href="${member.website}" target="_blank">Visit Website</a></p>
+                        <span class="membership-badge ${levelClass}">${levelName}</span>
+                    `;
+                    spotlightsContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading spotlights:', error);
+                document.getElementById('spotlights').innerHTML = '<p>Unable to load member spotlights.</p>';
+            }
+        }
+        
+        // Fetch weather data from OpenWeatherMap API
+        async function fetchWeather() {
+            // Replace with your actual API key and coordinates
+            const apiKey = 'YOUR_API_KEY_HERE';
+            const lat = '40.7128'; // Example: New York City latitude
+            const lon = '-74.0060'; // Example: New York City longitude
+            
+            try {
+                // Note: Replace this URL with your actual API key
+                // For demo purposes, we'll simulate the data
+                const weatherData = await simulateWeatherData();
+                displayWeather(weatherData);
+            } catch (error) {
+                console.error('Error fetching weather:', error);
+                document.getElementById('weather').innerHTML = '<p>Unable to load weather data. Please add your OpenWeatherMap API key.</p>';
+            }
+        }
+        
+        // Simulate weather data (replace with actual API call)
+        async function simulateWeatherData() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        current: {
+                            temp: 72,
+                            description: 'partly cloudy',
+                            icon: '⛅'
+                        },
+                        forecast: [
+                            { day: 'Today', temp: 72 },
+                            { day: 'Tomorrow', temp: 68 },
+                            { day: 'Sunday', temp: 75 }
+                        ]
+                    });
+                }, 500);
+            });
+        }
+        
+        // Display weather information
+        function displayWeather(data) {
+            const weatherContainer = document.getElementById('weather');
+            
+            const html = `
+                <div class="current-weather">
+                    <div class="weather-icon">${data.current.icon}</div>
+                    <div>
+                        <div class="weather-temp">${Math.round(data.current.temp)}°F</div>
+                        <div class="weather-desc">${data.current.description}</div>
+                    </div>
+                </div>
+                <div class="forecast">
+                    ${data.forecast.map(day => `
+                        <div class="forecast-day">
+                            <div class="forecast-day-name">${day.day}</div>
+                            <div class="forecast-temp">${Math.round(day.temp)}°F</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            weatherContainer.innerHTML = html;
+        }
+        
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Footer dynamic content
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = document.lastModified;
+        
+        // Initialize page
+        displaySpotlights();
+        fetchWeather();
+    </script>
+</body>
+</html>
