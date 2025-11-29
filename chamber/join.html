@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Received | Chamber of Commerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: #f4f4f4;
+            padding: 0.5rem;
+            border-bottom: 3px solid #2a5298;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #1e3c72;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #2a5298;
+            color: white;
+            border-radius: 4px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .confirmation-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .confirmation-container h1 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .confirmation-container p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .application-details {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: left;
+            margin: 2rem 0;
+            border-left: 4px solid #2a5298;
+        }
+
+        .application-details h2 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .detail-row {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3c72;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            .detail-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            nav ul {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chamber of Commerce</h1>
+        <p>Building a stronger business community together</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="confirmation-container">
+            <div class="success-icon">✓</div>
+            <h1>Thank You for Applying!</h1>
+            <p>Your membership application has been successfully received. We appreciate your interest in joining our chamber of commerce.</p>
+
+            <div class="application-details">
+                <h2>Application Summary</h2>
+                <div id="details">
+                    <!-- Details will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <p>A member of our team will review your application and contact you within 2-3 business days.</p>
+
+            <div class="button-group">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                <a href="join.html" class="btn btn-secondary">Submit Another Application</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Chamber of Commerce. All rights reserved.</p>
+        <p>Contact: info@chamber.com | (555) 123-4567</p>
+    </footer>
+
+    <script>
+        // Parse URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                firstName: params.get('firstName') || 'N/A',
+                lastName: params.get('lastName') || 'N/A',
+                email: params.get('email') || 'N/A',
+                phone: params.get('phone') || 'N/A',
+                business: params.get('business') || 'N/A',
+                timestamp: params.get('timestamp') || 'N/A'
+            };
+        }
+
+        // Format timestamp
+        function formatTimestamp(timestamp) {
+            if (timestamp === 'N/A') return 'N/A';
+            try {
+                const date = new Date(timestamp);
+                return date.toLocaleString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (e) {
+                return timestamp;
+            }
+        }
+
+        // Display the details
+        function displayDetails() {
+            const params = getUrlParams();
+            const detailsContainer = document.getElementById('details');
+            
+            const details = [
+                { label: 'First Name', value: params.firstName },
+                { label: 'Last Name', value: params.lastName },
+                { label: 'Email Address', value: params.email },
+                { label: 'Mobile Phone', value: params.phone },
+                { label: 'Business Name', value: params.business },
+                { label: 'Application Date', value: formatTimestamp(params.timestamp) }
+            ];
+
+            details.forEach(detail => {
+                const row = document.createElement('div');
+                row.className = 'detail-row';
+                
+                const label = document.createElement('div');
+                label.className = 'detail-label';
+                label.textContent = detail.label + ':';
+                
+                const value = document.createElement('div');
+                value.className = 'detail-value';
+                value.textContent = detail.value;
+                
+                row.appendChild(label);
+                row.appendChild(value);
+                detailsContainer.appendChild(row);
+            });
+        }
+
+        // Run when page loads
+        window.onload = displayDetails;
+    </script>
+</body>
+</html>
