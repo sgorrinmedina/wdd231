@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Plan - Health Sciences & Technology Education Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #457B9D;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 4px solid #A8DADC;
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #457B9D;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #A8DADC;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1D3557;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .color-box {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .color-info {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            color: #333;
+        }
+
+        .primary-color { background-color: #457B9D; }
+        .secondary-color { background-color: #A8DADC; color: #333 !important; }
+        .accent-color { background-color: #1D3557; }
+        .light-bg { background-color: #F1FAEE; color: #333 !important; }
+
+        .typography-example {
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #457B9D;
+        }
+
+        .font-example {
+            margin: 1rem 0;
+        }
+
+        .scenarios {
+            background-color: #F1FAEE;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .scenario-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #ffffff;
+            border-radius: 6px;
+            border-left: 4px solid #A8DADC;
+        }
+
+        .wireframe-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .wireframe {
+            text-align: center;
+        }
+
+        .wireframe-box {
+            border: 2px solid #457B9D;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            margin-top: 1rem;
+        }
+
+        .wireframe-mobile {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .wireframe-desktop {
+            max-width: 100%;
+        }
+
+        .wire-header {
+            background-color: #457B9D;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .wire-nav {
+            background-color: #A8DADC;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .wire-content {
+            background-color: #F1FAEE;
+            padding: 2rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            min-height: 200px;
+        }
+
+        .wire-cards {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 0.5rem 0;
+        }
+
+        .wire-card {
+            background-color: #ffffff;
+            border: 2px solid #A8DADC;
+            padding: 1rem;
+            border-radius: 4px;
+            flex: 1;
+            min-height: 80px;
+        }
+
+        .wire-footer {
+            background-color: #1D3557;
+            padding: 1rem;
+            border-radius: 4px;
+            color: #ffffff;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        strong {
+            color: #457B9D;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .wireframe-section {
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Sciences & Technology Education Hub</h1>
+        <p class="subtitle">Website Project Planning Document</p>
+
+        <div class="section">
+            <h2>1. Site Name</h2>
+            <h3>MedTech Study Hub</h3>
+            <p><strong>Reason for Selection:</strong> This name effectively combines the medical/health sciences aspect ("Med") with the technology focus ("Tech") while clearly communicating the site's educational purpose as a "Study Hub." The name is concise, memorable, and accurately represents the dual nature of the platform serving both health sciences and technology students.</p>
+            <p><strong>Optional Domain Availability:</strong> medtechstudyhub.com or medtech-hub.org</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Site Purpose</h2>
+            <p>MedTech Study Hub serves as a comprehensive educational platform dedicated to supporting students in health sciences and technology-related degrees. The site provides:</p>
+            <ul>
+                <li><strong>Virtual Laminariums:</strong> Interactive microscopic image collections for cytopathology and other laboratory science courses, allowing students to study real clinical specimens with detailed descriptions</li>
+                <li><strong>External Study Resources:</strong> Curated links to high-quality educational materials hosted on platforms such as Quizlet, Google Docs, and other academic resources relevant to specific health sciences and technology subjects</li>
+                <li><strong>Study Techniques & Tips:</strong> Evidence-based study methods specifically tailored for technology and health sciences programs, including time management strategies, effective note-taking systems, and exam preparation techniques</li>
+                <li><strong>Motivational Content:</strong> Personal success stories, motivational messages, and career outlook information designed to encourage students to persist through challenging coursework and complete their degrees</li>
+                <li><strong>Community Building:</strong> A platform that connects current students with resources and inspiration from peers who have successfully navigated similar academic challenges</li>
+            </ul>
+            <p>The site aims to reduce barriers to quality educational resources and provide the support network that technology and health sciences students need to succeed academically and professionally.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Scenarios (Target Audience Questions)</h2>
+            <div class="scenarios">
+                <div class="scenario-item">
+                    <strong>Scenario 1:</strong> "I'm struggling to identify different cytopathological features in my Gynecological Cytopathology course. Where can I find high-quality microscopic images with detailed explanations to practice my identification skills?"
+                </div>
+                <div class="scenario-item">
+                    <strong>Scenario 2:</strong> "What are the most effective study techniques for memorizing complex medical terminology and software development concepts? I'm feeling overwhelmed with the amount of information I need to learn."
+                </div>
+                <div class="scenario-item">
+                    <strong>Scenario 3:</strong> "I'm considering dropping out of my Cytotechnology program because it's so challenging. Are there any success stories or motivational resources that can help me see the career opportunities available if I complete my degree?"
+                </div>
+                <div class="scenario-item">
+                    <strong>Scenario 4:</strong> "Where can I find additional practice materials and quizzes for my current coursework in health sciences or technology? I learn better with hands-on practice."
+                </div>
+                <div class="scenario-item">
+                    <strong>Scenario 5:</strong> "What is the future job outlook for software engineering and health technology fields? I want to understand what opportunities await me after graduation."
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Color Scheme</h2>
+            <p>The color palette is inspired by your existing virtual laminarium project, creating visual consistency while being professional and conducive to learning:</p>
+            
+            <div class="color-palette">
+                <div class="color-box">
+                    <div class="color-swatch primary-color">#457B9D</div>
+                    <div class="color-info">
+                        <strong>Primary Blue</strong><br>
+                        Use: Headers, navigation bar, main buttons, section dividers<br>
+                        Psychology: Trust, professionalism, intelligence
+                    </div>
+                </div>
+                
+                <div class="color-box">
+                    <div class="color-swatch secondary-color">#A8DADC</div>
+                    <div class="color-info">
+                        <strong>Light Teal</strong><br>
+                        Use: Accent elements, hover states, secondary buttons, borders<br>
+                        Psychology: Calm, clarity, freshness
+                    </div>
+                </div>
+                
+                <div class="color-box">
+                    <div class="color-swatch accent-color">#1D3557</div>
+                    <div class="color-info">
+                        <strong>Deep Navy</strong><br>
+                        Use: Footer, important headings, text emphasis<br>
+                        Psychology: Authority, stability, confidence
+                    </div>
+                </div>
+                
+                <div class="color-box">
+                    <div class="color-swatch light-bg">#F1FAEE</div>
+                    <div class="color-info">
+                        <strong>Off-White</strong><br>
+                        Use: Page background, card backgrounds, content sections<br>
+                        Psychology: Cleanliness, simplicity, readability
+                    </div>
+                </div>
+            </div>
+            
+            <p><strong>Text Colors:</strong></p>
+            <ul>
+                <li>Primary text: #2c3e50 (dark gray-blue for excellent readability)</li>
+                <li>Secondary text: #555555 (medium gray for descriptions)</li>
+                <li>Link text: #457B9D (primary blue with hover effect)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. Typography</h2>
+            <p>The typography selections balance professionalism with readability, matching your existing project:</p>
+            
+            <div class="typography-example">
+                <div class="font-example">
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700;">Montserrat (Bold/Semibold) - Main Headings</h3>
+                    <p style="font-family: 'Montserrat', sans-serif;">This modern, geometric sans-serif font will be used for all H1 and H2 headings. Its clean lines and strong presence make it perfect for titles and section headers. Font weights: 600 (semibold) and 700 (bold).</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700;">Example: Welcome to MedTech Study Hub</p>
+                </div>
+                
+                <div class="font-example">
+                    <h3 style="font-family: 'Roboto', sans-serif; font-weight: 400;">Roboto - Body Text & Navigation</h3>
+                    <p style="font-family: 'Roboto', sans-serif;">Roboto serves as the primary body font for all paragraph text, navigation links, and general content. Its excellent screen readability and neutral appearance make it ideal for educational content. Font weights: 300 (light), 400 (regular), and 700 (bold for emphasis).</p>
+                    <p style="font-family: 'Roboto', sans-serif;">Example: Students in health sciences and technology programs face unique challenges that require specialized study resources and support systems. This platform aims to provide exactly that.</p>
+                </div>
+            </div>
+            
+            <p><strong>Font Application:</strong></p>
+            <ul>
+                <li><strong>Montserrat:</strong> All H1, H2 headings, site logo/name, call-to-action buttons</li>
+                <li><strong>Roboto:</strong> Body paragraphs, navigation links, H3 headings, card descriptions, footer text</li>
+            </ul>
+            
+            <p><strong>Font Sizes:</strong></p>
+            <ul>
+                <li>H1: 2.5rem (mobile: 2rem)</li>
+                <li>H2: 1.8rem (mobile: 1.5rem)</li>
+                <li>H3: 1.3rem</li>
+                <li>Body text: 1rem (16px base)</li>
+                <li>Small text: 0.9rem</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Wireframes</h2>
+            <p>Below are simplified wireframe representations for the home page in both mobile and desktop views:</p>
+            
+            <div class="wireframe-section">
+                <div class="wireframe">
+                    <h3>Mobile View (≤768px)</h3>
+                    <div class="wireframe-box wireframe-mobile">
+                        <div class="wire-header">
+                            [Logo] MedTech Study Hub [☰]
+                        </div>
+                        <div class="wire-nav">
+                            [Hamburger Menu]<br>
+                            • Home<br>
+                            • Virtual Laminariums<br>
+                            • Study Resources<br>
+                            • Study Tips<br>
+                            • Motivation<br>
+                            • Contact
+                        </div>
+                        <div class="wire-content">
+                            <div style="text-align: center; margin-bottom: 1rem;">
+                                <strong>[Hero Section]</strong><br>
+                                Welcome Message<br>
+                                Brief Description
+                            </div>
+                            <div class="wire-card" style="margin-bottom: 0.5rem;">
+                                [Feature Card 1]<br>
+                                Virtual Laminariums
+                            </div>
+                            <div class="wire-card" style="margin-bottom: 0.5rem;">
+                                [Feature Card 2]<br>
+                                Study Resources
+                            </div>
+                            <div class="wire-card">
+                                [Feature Card 3]<br>
+                                Motivation & Tips
+                            </div>
+                        </div>
+                        <div class="wire-footer">
+                            [Footer Info]<br>
+                            Copyright<br>
+                            Contact Links
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wireframe">
+                    <h3>Desktop/Tablet View (>768px)</h3>
+                    <div class="wireframe-box wireframe-desktop">
+                        <div class="wire-header">
+                            [Logo] MedTech Study Hub | [Navigation: Home | Laminariums | Resources | Tips | Motivation | Contact]
+                        </div>
+                        <div class="wire-content" style="padding: 2rem;">
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <strong style="font-size: 1.3rem;">[Hero Section]</strong><br>
+                                <p style="margin: 0.5rem 0;">Empowering Health Sciences & Technology Students</p>
+                                <p style="font-size: 0.9rem; margin: 0;">Your hub for virtual laminariums, study resources, and success strategies</p>
+                            </div>
+                            <div class="wire-cards">
+                                <div class="wire-card">
+                                    [Icon]<br>
+                                    <strong>Virtual Laminariums</strong><br>
+                                    Interactive microscopy
+                                </div>
+                                <div class="wire-card">
+                                    [Icon]<br>
+                                    <strong>Study Resources</strong><br>
+                                    Curated materials
+                                </div>
+                                <div class="wire-card">
+                                    [Icon]<br>
+                                    <strong>Study Techniques</strong><br>
+                                    Proven methods
+                                </div>
+                                <div class="wire-card">
+                                    [Icon]<br>
+                                    <strong>Motivation</strong><br>
+                                    Success stories
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; text-align: center; background-color: rgba(69, 123, 157, 0.1); padding: 1rem; border-radius: 4px;">
+                                [Featured Content Section]<br>
+                                Latest Virtual Laminarium or Featured Study Resource
+                            </div>
+                        </div>
+                        <div class="wire-footer">
+                            [Footer with Copyright, Contact Info, Social Links, Site Map]
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p><strong>Key Layout Features:</strong></p>
+            <ul>
+                <li><strong>Header:</strong> Sticky navigation with logo and menu (hamburger on mobile, horizontal on desktop)</li>
+                <li><strong>Hero Section:</strong> Welcoming message with clear value proposition</li>
+                <li><strong>Feature Cards:</strong> Grid layout showcasing main site sections (1 column mobile, 3-4 columns desktop)</li>
+                <li><strong>Content Area:</strong> Flexible space for featured content, recent additions, or announcements</li>
+                <li><strong>Footer:</strong> Site information, copyright, and navigation links</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Additional Planning Notes</h2>
+            
+            <h3>Site Structure</h3>
+            <p><strong>Primary Pages:</strong></p>
+            <ul>
+                <li><strong>Home:</strong> Overview and featured content</li>
+                <li><strong>Virtual Laminariums:</strong> Collection of interactive microscopy resources (including your Gynecological Cytopathology laminarium)</li>
+                <li><strong>Study Resources:</strong> Links to external materials organized by subject/degree</li>
+                <li><strong>Study Tips & Techniques:</strong> Personal study methods and academic success strategies</li>
+                <li><strong>Motivation & Career Outlook:</strong> Success stories, motivational content, and career information</li>
+                <li><strong>About/Contact:</strong> Information about the platform and how to contribute or get help</li>
+            </ul>
+            
+            <h3>Technical Considerations</h3>
+            <ul>
+                <li>Responsive design supporting mobile, tablet, and desktop views</li>
+                <li>Fast loading times with optimized images (especially for laminarium photos)</li>
+                <li>Accessible navigation with clear visual hierarchy</li>
+                <li>Integration of existing virtual laminarium code and styling</li>
+                <li>Potential for user submissions or contributions in future iterations</li>
+            </ul>
+            
+            <h3>Content Priority</h3>
+            <p>Phase 1 (Initial Launch):</p>
+            <ul>
+                <li>Home page with clear site purpose</li>
+                <li>Integration of Gynecological Cytopathology virtual laminarium</li>
+                <li>At least 5-10 curated external study resources</li>
+                <li>Basic study tips page with personal techniques</li>
+                <li>Motivational content section</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>This site plan provides a comprehensive roadmap for developing MedTech Study Hub, a platform designed to support health sciences and technology students through their academic journey. By combining interactive learning tools like virtual laminariums with curated external resources, proven study techniques, and motivational content, the site addresses the multifaceted needs of students in these demanding fields. The design prioritizes accessibility, professionalism, and user engagement while maintaining visual consistency with your existing project work.</p>
+        </div>
+    </div>
+</body>
+</html>
