@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTech Study Hub | Home</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES (Based on your Site Plan) --- */
+        :root {
+            --primary-blue: #457B9D;
+            --light-teal: #A8DADC;
+            --deep-navy: #1D3557;
+            --off-white: #F1FAEE;
+            --text-dark: #2c3e50;
+            --text-gray: #555555;
+            --white: #ffffff;
+        }
+
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--off-white);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--deep-navy);
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--primary-blue);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-teal);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--deep-navy);
+            color: var(--white);
+            padding: 4rem 1rem;
+            text-align: center;
+            background-image: linear-gradient(rgba(29, 53, 87, 0.9), rgba(29, 53, 87, 0.9)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=80'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--white); /* Override default navy for hero */
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: var(--light-teal);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .cta-button:hover {
+            background-color: var(--light-teal);
+            border-color: var(--light-teal);
+            color: var(--deep-navy);
+        }
+
+        /* --- FEATURES GRID (SERVICES) --- */
+        .features {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--light-teal);
+            margin: 0.5rem auto 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            color: var(--deep-navy);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- MOTIVATION SECTION --- */
+        .motivation-section {
+            background-color: var(--white);
+            padding: 4rem 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .motivation-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--light-teal);
+            padding-left: 1.5rem;
+            display: inline-block;
+            text-align: left;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--deep-navy);
+            color: var(--white);
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--light-teal);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--light-teal);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In a real project, you'd add JS for a toggle menu */
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">MedTech Study Hub</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Laminariums</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Study Tips</a></li>
+                    <li><a href="#">Motivation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Empowering Health Sciences & Technology Students</h1>
+            <p>Your comprehensive hub for virtual laminariums, curated study resources, and success strategies for the digital age.</p>
+            <a href="#features" class="cta-button">Explore Resources</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title">What We Offer</h2>
+        
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-icon">🔬</span>
+                    <h3>Virtual Laminariums</h3>
+                    <p>Access our interactive microscopic image collections. Perfect for Cytopathology and laboratory science students needing to study real clinical specimens remotely.</p>
+                    <a href="#" class="card-link">Start Viewing &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-icon">📚</span>
+                    <h3>Study Resources</h3>
+                    <p>Curated links to high-quality materials on Quizlet, Google Docs, and academic databases. Organized specifically for health science and tech degrees.</p>
+                    <a href="#" class="card-link">Browse Library &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-icon">🧠</span>
+                    <h3>Study Tips</h3>
+                    <p>Evidence-based methods for memorizing complex medical terminology and coding concepts. Learn the techniques that helped me succeed.</p>
+                    <a href="#" class="card-link">Learn How &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-icon">🚀</span>
+                    <h3>Future Outlook</h3>
+                    <p>Success stories and career outlook information for Software Engineering and Health Tech. Stay motivated and see where your degree can take you.</p>
+                    <a href="#" class="card-link">Get Inspired &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="motivation-section">
+        <div class="motivation-content">
+            <h2>Why This Platform Exists</h2>
+            <br>
+            <div class="quote">
+                "Technology, especially software engineering, has a really bright future if you know how to exploit it. My goal is to help fellow students navigate the challenges of this degree and reach that future."
+            </div>
+            <p style="margin-top: 1rem; color: #555;">
+                Whether you are identifying pathologies under a microscope or debugging code, MedTech Study Hub is here to provide the tools and encouragement you need to finish your degree strong.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>MedTech Study Hub</h4>
+                <p>Bridging the gap between Health Sciences and Technology education.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Virtual Laminariums</a></li>
+                    <li><a href="#">Study Resources</a></li>
+                    <li><a href="#">My Journey</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">About the Creator</a></li>
+                    <li><a href="#">Submit a Resource</a></li>
+                    <li><a href="#">Get Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 MedTech Study Hub. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
