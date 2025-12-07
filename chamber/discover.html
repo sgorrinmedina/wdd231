@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the attractions and hidden gems in our Chamber of Commerce community.">
+    <title>Discover Our Community | Chamber of Commerce</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏛️</text></svg>">
+
+    <style>
+        /* CSS Reset & Variables (Matching your Directory page) */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-color: #2c5f7c;
+            --secondary-color: #e89b3c;
+            --background-color: #f5f5f5;
+            --text-color: #333333;
+            --card-background: #ffffff;
+            --header-bg: #1a3a4a;
+            --footer-bg: #2c5f7c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo { font-size: 2rem; }
+        header h1 { font-size: 1.5rem; }
+
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* --- Main Content --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        /* --- Visitor Message (LocalStorage) --- */
+        #visitor-message {
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--secondary-color);
+            color: var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none; /* Hidden by default until JS runs */
+        }
+
+        /* --- Grid Layout --- */
+        .discover-grid {
+            display: grid;
+            gap: 1.5rem;
+            /* Default Mobile Layout (Small Screens) */
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "card1"
+                "card2"
+                "card3"
+                "card4"
+                "card5"
+                "card6"
+                "card7"
+                "card8";
+        }
+
+        /* Medium Screens (Tablets) */
+        @media (min-width: 641px) {
+            .discover-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: 
+                    "card1 card2"
+                    "card3 card4"
+                    "card5 card6"
+                    "card7 card8";
+            }
+        }
+
+        /* Large Screens (Desktop) */
+        @media (min-width: 1025px) {
+            .discover-grid {
+                grid-template-columns: repeat(3, 1fr);
+                /* Note: card8 spans two columns just to demonstrate complex grid areas */
+                grid-template-areas: 
+                    "card1 card2 card3"
+                    "card4 card5 card6"
+                    "card7 card8 card8";
+            }
+        }
+
+        /* --- Card Styling --- */
+        .attraction-card {
+            background: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Mapping IDs to Grid Areas */
+        #card1 { grid-area: card1; }
+        #card2 { grid-area: card2; }
+        #card3 { grid-area: card3; }
+        #card4 { grid-area: card4; }
+        #card5 { grid-area: card5; }
+        #card6 { grid-area: card6; }
+        #card7 { grid-area: card7; }
+        #card8 { grid-area: card8; }
+
+        .attraction-card figure {
+            margin: 0;
+            overflow: hidden; /* Essential for containing the zoom effect */
+            height: 200px;
+        }
+
+        .attraction-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        /* HOVER EFFECT - Desktop Only */
+        @media (min-width: 1025px) {
+            .attraction-card:hover img {
+                transform: scale(1.1);
+                filter: brightness(1.1);
+            }
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-card h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .attraction-card address {
+            font-style: normal;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .attraction-card p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .learn-more-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+
+        .learn-more-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+            }
+            .nav-menu.active { display: flex; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">🏛️</div>
+                <h1>Your City Chamber</h1>
+            </div>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="discover.html" class="active">Discover</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Discover Our Community</h1>
+
+        <div id="visitor-message"></div>
+
+        <div id="attractions-grid" class="discover-grid">
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Your City Chamber of Commerce</p>
+        <p>WDD 231 Project</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+    </footer>
+
+    <script type="module">
+        // 1. IMPORT DATA
+        import { attractions } from './data/attractions.mjs';
+
+        // 2. VISITOR MESSAGE LOGIC (LocalStorage)
+        const msPerDay = 24 * 60 * 60 * 1000;
+        const messageEl = document.getElementById('visitor-message');
+        const lastVisit = localStorage.getItem('lastVisit');
+        const now = Date.now();
+
+        if (!lastVisit) {
+            // Case 1: First visit
+            messageEl.textContent = "Welcome! Let us know if you have any questions.";
+        } else {
+            const timeDiff = now - parseInt(lastVisit);
+            
+            if (timeDiff < msPerDay) {
+                // Case 2: Less than a day
+                messageEl.textContent = "Back so soon! Awesome!";
+            } else {
+                // Case 3: More than a day
+                const daysAgo = Math.floor(timeDiff / msPerDay);
+                const dayString = daysAgo === 1 ? "day" : "days";
+                messageEl.textContent = `You last visited ${daysAgo} ${dayString} ago.`;
+            }
+        }
+        
+        // Display the message and update storage
+        messageEl.style.display = 'block';
+        localStorage.setItem('lastVisit', now);
+
+
+        // 3. GENERATE CARDS
+        const grid = document.getElementById('attractions-grid');
+
+        attractions.forEach(place => {
+            // Create Card Container
+            const card = document.createElement('div');
+            card.className = 'attraction-card';
+            card.id = place.id; // Important for Grid Area mapping
+
+            // Inner HTML Structure
+            card.innerHTML = `
+                <figure>
+                    <img src="${place.image}" alt="${place.name}" loading="lazy" width="300" height="200">
+                </figure>
+                <div class="card-content">
+                    <h2>${place.name}</h2>
+                    <address>${place.address}</address>
+                    <p>${place.description}</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // 4. FOOTER & MENU UTILITIES
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = document.lastModified;
+
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+    </script>
+</body>
+</html>
